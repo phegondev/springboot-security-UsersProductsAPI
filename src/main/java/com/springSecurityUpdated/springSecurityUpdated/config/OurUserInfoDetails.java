@@ -1,6 +1,6 @@
-package com.den.MySpringSecurityTuts.config;
+package com.springSecurityUpdated.springSecurityUpdated.config;
 
-import com.den.MySpringSecurityTuts.model.User;
+import com.springSecurityUpdated.springSecurityUpdated.model.OurUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,20 +10,18 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class UserInfoDetails implements UserDetails {
-
-    private String name;
+public class OurUserInfoDetails implements UserDetails {
+    private String email;
     private String password;
     private List<GrantedAuthority> roles;
 
-    public UserInfoDetails(User user){
-        this.name = user.getName();
-        this.password = user.getPassword();
-        this.roles = Arrays.stream(user.getRoles().split(","))
+    public OurUserInfoDetails(OurUser ourUser){
+        this.email = ourUser.getEmail();
+        this.password = ourUser.getPassword();
+        this.roles = Arrays.stream(ourUser.getRoles().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
     }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.roles;
@@ -36,7 +34,7 @@ public class UserInfoDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.name;
+        return this.email;
     }
 
     @Override

@@ -1,13 +1,13 @@
-package com.den.MySpringSecurityTuts;
+package com.springSecurityUpdated.springSecurityUpdated;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MySpringSecurityTutsApplication {
+public class SpringSecurityUpdatedApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MySpringSecurityTutsApplication.class, args);
+		SpringApplication.run(SpringSecurityUpdatedApplication.class, args);
 	}
 
 }
